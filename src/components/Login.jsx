@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [message, setMessage] = useState('');
 const navigate=useNavigate()
   // URL endpoint login backend
-  const API_URL = 'http://localhost:5000/login'; // Sesuaikan jika perlu
+  const API_URL = `${import.meta.env.VITE_API_URL}/login`; // Sesuaikan jika perlu
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Mencegah form reload halaman
