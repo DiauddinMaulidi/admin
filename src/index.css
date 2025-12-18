@@ -70,7 +70,7 @@ body,
 }
 .btn:disabled { opacity: .6; cursor: not-allowed; }
 .error-text { color: red; font-size: 13px; margin-top: 4px; }
-
+/*
 .card {
   background: #f8f8f8;            /* Equivalent of bg-neutral-primary-soft */
   max-width: 350px;
@@ -78,7 +78,7 @@ body,
   border: 1px solid #ddd;         /* border-default */
   border-radius: 12px;            /* rounded-base */
   box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* shadow-xs */
-}
+} */
 
 .card-image {
   width: 100%;
@@ -156,7 +156,7 @@ body,
   gap: 20px;
 }
 
-.card {
+/* .card {
   width: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -164,7 +164,7 @@ body,
   padding: 10px;
   background: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+} */
 
 .card-image {
   width: 100%;

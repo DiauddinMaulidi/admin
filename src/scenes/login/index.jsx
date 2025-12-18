@@ -7,17 +7,14 @@ export default function Login() {
   const [showPass, setShowPass] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // State untuk menampilkan pesan error atau sukses
   const [message, setMessage] = useState('');
   const navigate = useNavigate()
-  // URL endpoint login backend
-  const API_URL = `${import.meta.env.VITE_API_URL}/login`; // Sesuaikan jika perlu
+  const API_URL = `${import.meta.env.VITE_API_URL}/login`;
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Mencegah form reload halaman
+    e.preventDefault();
 
     try {
-      // Mengirim data login ke backend menggunakan axios
       const response = await axios.post(API_URL, {
         username,
         password,
@@ -27,17 +24,13 @@ export default function Login() {
         localStorage.setItem('token', response.data.token);
         setMessage('Login Berhasil! Mengalihkan ke Dashboard...');
 
-        // --- 3. Arahkan pengguna ke halaman navigasi utama ---
         navigate('/');
 
       } else {
         setMessage('Login berhasil, tetapi token tidak diterima.');
       }
-      // Di sini Anda bisa mengarahkan pengguna ke halaman dashboard
-      // Contoh: history.push('/dashboard');
 
     } catch (error) {
-      // Jika login gagal (misalnya, status 401 Unauthorized)
       const errorMsg = error.response ? error.response.data.message : 'Terjadi kesalahan jaringan.';
       setMessage(`Login Gagal: ${errorMsg}`);
       console.error('Error Login:', error);
@@ -54,13 +47,13 @@ export default function Login() {
 
           {/* Email */}
           <div className="form-group">
-            <label>Username</label>
-            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="kknunhaz" />
+            <label className="text-white">Username</label>
+            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="contoh: kknunhaz" />
           </div>
 
           {/* Password */}
           <div className="form-group">
-            <label>Password</label>
+            <label className="text-white">Password</label>
             <div className="password-field">
               <input
                 type={showPass ? "text" : "password"}
