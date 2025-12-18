@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   // State untuk menampilkan pesan error atau sukses
   const [message, setMessage] = useState('');
-const navigate=useNavigate()
+  const navigate=useNavigate()
   // URL endpoint login backend
   const API_URL = `${import.meta.env.VITE_API_URL}/login`; // Sesuaikan jika perlu
 
