@@ -84,7 +84,7 @@ const Dashboard = () => {
         sx={{
           gridTemplateColumns: {
             xs: "repeat(1, 1fr)",   // mobile
-            sm: "repeat(6, 1fr)",  // desktop
+            sm: "repeat(12, 1fr)",  // desktop
             md: "repeat(12, 1fr)",  // desktop
           },
         }}
