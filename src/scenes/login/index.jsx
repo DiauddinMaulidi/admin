@@ -47,14 +47,14 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-card">
-        <h2 className="title">LOGIN DULU LAH</h2>
-        <p className="subtitle">Login untuk ke dashboard</p>
+        <h2 className="title">LOGIN</h2>
+        <p className="subtitle">desa tembeng putik</p>
 
         <form onSubmit={handleSubmit}>
 
           {/* Email */}
           <div className="form-group">
-            <label>Email</label>
+            <label>Username</label>
             <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="kknunhaz" />
           </div>
 
