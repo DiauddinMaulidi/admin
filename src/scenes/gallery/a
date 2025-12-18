@@ -1,0 +1,80 @@
+import { useEffect, useState } from "react";
+import LightGallery from "lightgallery/react";
+
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
+
+import "./Gallery.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+export default function Gallery() {
+    const navigate = useNavigate()
+
+    const [images, setImages] = useState([]);
+
+    const loadData = async () => {
+        try {
+            const results = await axios.get("http://localhost:5000/penduduk_tembeng/gallery")
+            // console.log(results.data);
+            setImages(Array.isArray(results.data) ? results.data : [])
+        } catch (error) {
+            console.error("Gagal memuat berita:", error);
+        }
+    }
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+    const handleDelete = (img, e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (window.confirm("Yakin ingin menghapus gambar ini?")) {
+            setImages((prev) => prev.filter((item) => item !== img));
+        }
+
+    };
+
+    return (
+        <div className= "container" >
+        <h2 style={ { display: 'flex', justifyContent: 'center' } }> Gallery Desa </h2>
+            < button
+    className = "btn-tambah"
+    onClick = {() => navigate("/gallery/tambah")
+} >
+    Tambah Gambar
+        </>
+
+        < LightGallery
+speed = { 500}
+plugins = { [lgThumbnail, lgZoom]}
+elementClassNames = "gallery-grid"
+    >
+{
+    images.map((image, index) => (
+        <a
+            key= { index }
+            href = { image.images }
+            data - src={ image.images }
+            className = "image-wrapper"
+        >
+        <img src={ image.images } alt = { image.nama } />
+
+        <button
+                className="delete-btn"
+                onClick = {(e) => handleDelete(image, e)}
+    >
+    Hapus
+    </button>
+    </a>
+        ))}
+</LightGallery>
+    </div>
+  );
+}

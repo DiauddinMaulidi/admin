@@ -1,0 +1,44 @@
+.container {
+    padding: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+/* Wrapper */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gambar */
+.image-wrapper img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tombol hapus */
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(220, 38, 38, 0.9);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Muncul saat hover */
+.image-wrapper:hover .delete-btn {
+    opacity: 1;
+}
