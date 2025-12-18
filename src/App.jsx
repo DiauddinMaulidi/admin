@@ -17,7 +17,7 @@ import Berita from "./components/TambahBerita";
 import EditDusun from "./components/EditDusun";
 import Keluarga from "./scenes/keluarga";
 import KeluargaDetail from "./components/KeluargaDetail";
-import LoginForm from "./components/Login";
+// import LoginForm from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Outlet } from "react-router-dom";
 import Umkm from "./scenes/umkm";
@@ -33,6 +33,7 @@ import EditPendidikan from "./components/EditPendidikan";
 import Kesehatan from "./scenes/kesehatan";
 import TambahKesehatan from "./components/TambahKesehatan";
 import EditKesehatan from "./components/EditKesehatan";
+import Login from "./scenes/login";
 
 function Layout({ isSidebar, setIsSidebar }) {
   return (
@@ -57,7 +58,7 @@ function App() {
 
         <Routes>
           {/* Rute Public */}
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login" element={<Login />} />
 
           {/* Rute Protected */}
           <Route element={<ProtectedRoute />}>
